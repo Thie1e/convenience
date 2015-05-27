@@ -16,10 +16,12 @@ as a subdirectory of the current working directory.}
 \description{
 This function stores all objects from the global environment
 that are larger than the threshold in a cache on disk,
-i.e. out of memory, using SOAR::Store().
+i.e. out of memory, by using SOAR::Store() and removing the objects from the
+global environment.
 By default the function creates a "SOARcache" directory as a subdirectory of
 the current working directory to store the objects.
 Automatically runs garbage collection after storing the objects.
+Returns the result of the garbage collection.
 }
 \examples{
 storeAll()

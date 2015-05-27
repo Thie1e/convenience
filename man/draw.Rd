@@ -18,7 +18,7 @@ to head(), tail() or ht(). May also be used to quickly draw random samples.
 }
 \examples{
 set.seed(4321)
-draw(iris)
+draw(iris, 6L)
 ###      Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
 ###  51           7.0         3.2          4.7         1.4 versicolor
 ###  136          7.7         3.0          6.1         2.3  virginica
