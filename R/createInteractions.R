@@ -51,11 +51,13 @@ createInteractions <- function(x, type = NULL, normalize = T, excludeFactors = T
         # don't return original columns
         colClasses <- sapply(x, class)
         nonFacCols <- sum(colClasses != "factor")
+        FacCols <- sum(colClasses == "factor")
         nLevels <- lapply(x[colClasses == "factor"], levels)
-        # Per Variable model.matrix creates one level less ("dummy trap")
-        nLevels <- lapply(nLevels, function(x) length(x) - 1)
+        nLevels <- lapply(nLevels, function(x) length(x))
         nLevels <- sum(unlist(nLevels))
-        return(model.matrix(~ .^2-1, x)[, -(1:(nonFacCols + nLevels))])
+        # -1 because of intercept. Without -1 and if factors are present
+        # one factor variable will be included with all levels
+        return(model.matrix(~ .^2, x)[, -(1:(nonFacCols + nLevels - FacCols + 1))])
     }
 
     if (type == "-"){
