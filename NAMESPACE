@@ -2,6 +2,7 @@
 
 export(autoCheckGC)
 export(cha)
+export(clear)
 export(convertMTdataToXts)
 export(createInteractions)
 export(draw)
