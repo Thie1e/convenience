@@ -8,4 +8,6 @@
 #' @examples
 #' clear()
 
-clear <- function(env = ".GlobalEnv") rm(list = ls(name = env))
+clear <- function(env = ".GlobalEnv") {
+    rm(list = ls(name = env), pos = ".GlobalEnv")
+}
