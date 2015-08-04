@@ -9,5 +9,5 @@
 #' clear()
 
 clear <- function(env = ".GlobalEnv") {
-    rm(list = ls(name = env), pos = ".GlobalEnv")
+    rm(list = ls(name = env), pos = env)
 }
