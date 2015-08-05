@@ -2,15 +2,17 @@
 % Please edit documentation in R/maxSumCut.R
 \name{maxSumCut}
 \alias{maxSumCut}
-\title{Determine the optimal cutoff to maximize the sum of all obsevations}
+\title{Determine the optimal cutoff to maximize the sum of all observations}
 \usage{
-maxSumCut(obs, preds, step = 0.02)
+maxSumCut(obs, preds, stepsizesize = 0.02)
 }
 \arguments{
 \item{obs}{A numeric vector of observations}
 
 \item{preds}{A numeric vector of predictions or probabilities in
 the interval [0,1]}
+
+\item{stepsize}{The interval at which cutoffs are created and examined}
 }
 \description{
 Given a vector of obsevations and a vector of probabilities / predictions,
