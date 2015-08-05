@@ -13,7 +13,7 @@
 #' @keywords cutoff threshold classification
 #' @export
 
-maxSumCut <- function(obs, preds, stepsizesize = 0.02) {
+maxSumCut <- function(obs, preds, stepsize = 0.02) {
     if (max(preds) > 1 | min(preds) < 0) {
         stop("Predictions / Probabilities should be in [0,1]")
     }
