@@ -2,7 +2,10 @@
 #'
 #' Given a vector of obsevations and a vector of probabilities / predictions,
 #' this function determines the optimal cutoff for binary classification
-#' to maximize the sum of the given observations.
+#' to maximize the sum of the given observations. If multiple cutoffs
+#' lead to the maximum sum, the average of these cutoffs is returned.
+#'
+#' Returns the determined optimal cutoff, a numeric vector of length 1.
 #' @param obs A numeric vector of observations
 #' @param preds A numeric vector of predictions or probabilities in
 #' the interval [0,1]
@@ -15,9 +18,9 @@ maxSumCut <- function(obs, preds, step = 0.02) {
     }
 
     cuts <- seq(0, 1, step)
-    profit <- sapply(cuts, function(cut) sum(obs * (preds >= cut)))
-    results <- data.frame(Cutoff = cuts, Profit = profit)
-    bestCutoff <- with(results, Cutoff[which(Profit == max(Profit))])
+    sums <- sapply(cuts, function(cut) sum(obs * (preds >= cut)))
+    results <- data.frame(Cutoff = cuts, Sum = sums)
+    bestCutoff <- with(results, Cutoff[which(Sum == max(Sum))])
     # Falls es für mehrere Cutoffs das optimale Ergebnis gibt
     bestCutoff <- mean(bestCutoff)
     return(bestCutoff)

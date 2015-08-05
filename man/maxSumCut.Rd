@@ -15,7 +15,11 @@ the interval [0,1]}
 \description{
 Given a vector of obsevations and a vector of probabilities / predictions,
 this function determines the optimal cutoff for binary classification
-to maximize the sum of the given observations.
+to maximize the sum of the given observations. If multiple cutoffs
+lead to the maximum sum, the average of these cutoffs is returned.
+}
+\details{
+Returns the determined optimal cutoff, a numeric vector of length 1.
 }
 \keyword{classification}
 \keyword{cutoff}
