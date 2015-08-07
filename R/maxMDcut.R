@@ -28,7 +28,7 @@ maxMDcut <- function(obs, preds, stepsize = 0.02, summaryFunc = "mean") {
     })
 
     results <- data.frame(Cutoff = cuts, MeanOverSD = MeanOverSD)
-    bestCutoff <- with(results, Cutoff[which(MeanOverSD == max(MeanOverSD))])
+    bestCutoff <- with(results, Cutoff[which(MeanOverSD == max(MeanOverSD, na.rm = T))])
 
     # If multiple cutoffs lead to the optimal result
     if (summaryFunc == "mean") {
