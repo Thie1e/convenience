@@ -20,18 +20,29 @@ h2o.clear <- function(servername, clear = "all") {
     if (length(ls_h2o) < 1) stop("No objects at specified H2O connection")
 
     if (clear == "all") {
-        h2o.rm(conn = servername, ids = as.character(ls_h2o))
+        sapply(ls_h2o, function(x) {
+            try(h2o.rm(conn = servername, ids = as.character(x)), silent = T)
+        })
     }
 
     if (clear == "models") {
         modelIndices <- str_detect(ls_h2o, "DeepLearning|GBM|K-means|GLM|DRF|
                                              NaiveBayes|PCA")
-        h2o.rm(conn = servername, ids = as.character(ls_h2o[modelIndices]))
+        sapply(ls_h2o[modelIndices], function(x) {
+            try(h2o.rm(conn = servername, ids = as.character(x)), silent = T)
+        })
     }
 
     if (clear == "noModels") {
         modelIndices <- str_detect(ls_h2o, "DeepLearning|GBM|K-means|GLM|DRF|
                                              NaiveBayes|PCA")
-        h2o.rm(conn = servername, ids = as.character(ls_h2o[!modelIndices]))
+        sapply(ls_h2o[!modelIndices], function(x) {
+            try(h2o.rm(conn = servername, ids = as.character(x)), silent = T)
+        })
     }
+
+    # Check if all objects could be removed
+    ls_h2o <- h2o.ls(servername)
+    ls_h2o <- as.character(ls_h2o$key)
+    if (length(ls_h2o) > 0) message("h2o.clear: Not all objects could be removed")
 }
