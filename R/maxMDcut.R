@@ -13,19 +13,26 @@
 #' @param stepsize The interval at which cutoffs are created and examined
 #' @param summaryFunc If multiple cutoffs lead to the optimal solution,
 #' return the "mean", "min" or "max" of those cutoffs
+#' @param onlyNegSD Only use the standard deviation of negative observations
 #' @keywords cutoff threshold classification
 #' @export
 
-maxMDcut <- function(obs, preds, stepsize = 0.02, summaryFunc = "mean") {
+maxMDcut <- function(obs, preds, stepsize = 0.02,
+                     summaryFunc = "mean", onlyNegSD = FALSE) {
     if (max(preds) > 1 | min(preds) < 0) {
         stop("Predictions / Probabilities should be in [0,1]")
     }
     stopifnot(summaryFunc %in% c("max", "min", "mean"))
 
     cuts <- seq(0, 1, stepsize)
-    MeanOverSD <- sapply(cuts, function(cut) {
-        mean(obs * (preds >= cut)) / sd(obs * (preds >= cut))
-    })
+    if (onlyNegSD) {
+        MDfunc <- function(cut) {
+            mean(obs * (preds >= cut)) / sd(obs[obs < 0] * (preds >= cut)[obs < 0])
+        }
+    } else {
+        MDfunc <- function(cut) mean(obs * (preds >= cut)) / sd(obs * (preds >= cut))
+    }
+    MeanOverSD <- sapply(cuts, MDfunc)
 
     results <- data.frame(Cutoff = cuts, MeanOverSD = MeanOverSD)
     bestCutoff <- with(results, Cutoff[which(MeanOverSD == max(MeanOverSD, na.rm = T))])

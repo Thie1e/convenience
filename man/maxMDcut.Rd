@@ -4,7 +4,8 @@
 \alias{maxMDcut}
 \title{Determine the optimal cutoff to maximize the Mean divided by Standard Deviation}
 \usage{
-maxMDcut(obs, preds, stepsize = 0.02, summaryFunc = "mean")
+maxMDcut(obs, preds, stepsize = 0.02, summaryFunc = "mean",
+  onlyNegSD = FALSE)
 }
 \arguments{
 \item{obs}{A numeric vector of observations}
@@ -16,6 +17,8 @@ the interval [0,1]}
 
 \item{summaryFunc}{If multiple cutoffs lead to the optimal solution,
 return the "mean", "min" or "max" of those cutoffs}
+
+\item{onlyNegSD}{Only use the standard deviation of negative observations}
 }
 \description{
 Given a vector of obsevations and a vector of probabilities / predictions,
