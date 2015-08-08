@@ -21,7 +21,7 @@ maxSumCut <- function(obs, preds, stepsize = 0.02, summaryFunc = "mean") {
     cuts <- seq(0, 1, stepsize)
     sums <- sapply(cuts, function(cut) sum(obs * (preds >= cut)))
     results <- data.frame(Cutoff = cuts, Sum = sums)
-    bestCutoff <- with(results, Cutoff[which(Sum == max(Sum))])
+    bestCutoff <- with(results, Cutoff[which(Sum == max(Sum, na.rm = T))])
 
     # If multiple cutoffs lead to the optimal result
     if (summaryFunc == "mean") {
