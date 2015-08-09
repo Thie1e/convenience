@@ -27,7 +27,10 @@ maxMDcut <- function(obs, preds, stepsize = 0.02,
     cuts <- seq(0, 1, stepsize)
     if (onlyNegSD) {
         MDfunc <- function(cut) {
-            mean(obs * (preds >= cut)) / sd(obs[obs < 0] * (preds >= cut)[obs < 0])
+            denom <- obs * (preds >= 0)
+            denom[denom > 0] <- 0
+            denom <- sd(denom)
+            mean(obs * (preds >= cut)) / denom
         }
     } else {
         MDfunc <- function(cut) mean(obs * (preds >= cut)) / sd(obs * (preds >= cut))
