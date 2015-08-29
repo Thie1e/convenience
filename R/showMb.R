@@ -11,6 +11,10 @@
 
 showMb <- function(objects = ls(envir = .GlobalEnv)){
       sizes <- lapply(objects, function(x) object.size(get(x)))
+      if (length(sizes) == 0) {
+          message("No objects found, environment empty")
+          return(NULL)
+      }
       indices <- order(unlist(sizes), decreasing = T)
       sizes <- sapply(sizes, function(x) format(x, units = "Mb"))
       return(data.frame(Object = objects[indices],

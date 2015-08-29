@@ -22,6 +22,7 @@ storeAll <- function(thresh = 50, dir = "SOARcache"){
       oldLC <- Sys.getenv("R_LOCAL_CACHE", unset = ".R_Cache")
       Sys.setenv(R_LOCAL_CACHE = dir)
       sizesDF <- showMb()
+      if (is.null(sizesDF)) stop("Abort, no objects found")
       sizes <- strsplit(sizesDF$Size, split = " ")
       sizes <- num(sapply(sizes, "[[", 1))
       storeThese <- sizesDF$Object[which(sizes >= thresh)]
