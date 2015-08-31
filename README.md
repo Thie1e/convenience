@@ -27,5 +27,5 @@ run garbage collection
 - storeThese: Store a list of objects out of memory and run garbage collection
 
 ## Installation
-library(devtools)
-install_github('thie1e/convenience')
+    library(devtools)
+    install_github('thie1e/convenience')
