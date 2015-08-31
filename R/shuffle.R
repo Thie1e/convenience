@@ -1,4 +1,4 @@
-#' Shuffle / Permutate rows or elements of a data object
+#' Shuffle rows or elements of a data object
 #'
 #' Randomly shuffle the rows/elements of an object.
 #' If x is a matrix or data frame, this is equivalent to

@@ -2,7 +2,7 @@
 % Please edit documentation in R/shuffle.R
 \name{shuffle}
 \alias{shuffle}
-\title{Shuffle / Permutate rows or elements of a data object}
+\title{Shuffle rows or elements of a data object}
 \usage{
 shuffle(x)
 }
