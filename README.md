@@ -29,7 +29,3 @@ run garbage collection
 ## Installation
     library(devtools)
     install_github('thie1e/convenience')
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Thie1e/convenience/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
