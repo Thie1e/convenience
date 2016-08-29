@@ -1,7 +1,7 @@
 # convenience
 A small package of diverse functions, mainly for more convenient working in R
 
-For personal use
+# For personal use
 
 ## Functions
 - autoCheckGC: Given two time series checks for Granger Causality and automatically
@@ -9,7 +9,6 @@ chooses the appropriate number of lags based on a specified information criterio
 - cha: short for as.character()
 - clear: This function removes all objects from the global environment (default)
 or from a specified environment and by default runs garbage collection afterwards
-- convertMTdataToXts: Convert price data exported from Meta Trader 4 to xts
 - createInteractions: Create all possible interactions (product, sum, difference)
 - draw: Randomly draw rows or elements from an object
 - getColnames: Return the column names of all variables in the workspace
