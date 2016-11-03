@@ -1,3 +1,5 @@
+[![Travis-CI Build Status](https://travis-ci.org/Thie1e/convenience.svg?branch=master)](https://travis-ci.org/Thie1e/convenience)
+
 # convenience
 A small package of diverse functions, mainly for more convenient working in R
 
