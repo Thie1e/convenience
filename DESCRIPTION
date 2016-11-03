@@ -2,10 +2,11 @@ Package: convenience
 Title: A small collection of diverse functions for more convenient working in R
 Version: 0.0.0.9000
 Authors@R: person("Christian", "Thiele", , "contme109@gmail.com", role = c("aut", "cre"))
-Description: Shortcuts to the as.numeric and as.character functions, quick Granger-Causality
-    testing, creation of interaction variables and easier checking and storing of objects in 
-    the workspace.
-Depends: R (>= 3.2.0)
+Description: Shortcuts to the as.numeric and as.character functions, quick
+    Granger-Causality testing, creation of interaction variables and easier checking
+    and storing of objects in the workspace.
+Depends:
+    R (>= 3.2.0)
 License: MIT + file LICENSE
 LazyData: true
 Suggests:
@@ -14,3 +15,4 @@ Suggests:
     vars,
     tseries,
     SOAR
+RoxygenNote: 5.0.1
