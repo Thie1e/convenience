@@ -1,9 +1,9 @@
-#' Wrapper for as.character()
+#' Short for as.character()
 #'
 #' This function is just a shortcut to as.character().
 #' @keywords as.character
 #' @export
 #' @examples
-#' cha()
+#' char()
 
-cha <- function(x) as.character(x)
+char <- function(x) as.character(x)
