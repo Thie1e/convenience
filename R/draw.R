@@ -2,6 +2,7 @@
 #'
 #' Randomly draw n rows/elements from an object. Can be useful as an alternative
 #' to head(), tail() or ht(). May also be used to quickly draw random samples.
+#' Works with tibbles, too, but will return a data.frame in that case.
 #' @param x An object
 #' @param n Single positive integer. The number of rows/elements to be randomly
 #' drawn.
@@ -19,13 +20,15 @@
 #' ###  109          6.7         2.5          5.8         1.8  virginica
 
 draw <- function(x, n = 10L, replace = F, ...){
-      stopifnot(n >= 0)
-      dimension <- dim(x)
-      if (is.null(dimension)){
-            # Vector
-            return(x[sample(seq_along(x), size = n, replace = replace)])
-      } else {
-            # Matrix
-            return(x[sample(1:dimension[1], size = n, replace = replace), ])
-      }
+    stopifnot(n >= 0)
+    dimension <- dim(x)
+    if (is.null(dimension)){
+        # Vector or list
+        return(x[sample(seq_along(x), size = n, replace = replace)])
+    } else if ("tbl_df" %in% class(x)) {
+        return(data.frame(x)[sample(1:dimension[1], size = n, replace = replace), ])
+    } else {
+        # Matrix or data.frame
+        return(x[sample(1:dimension[1], size = n, replace = replace), ])
+    }
 }
