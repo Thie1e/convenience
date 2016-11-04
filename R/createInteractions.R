@@ -20,6 +20,11 @@
 #' createInteractions()
 
 createInteractions <- function(x, type = NULL, normalize = T, excludeFactors = T){
+
+    #----------------------
+    # Really needs to be rewritten...
+    #---------------------
+
     if ("data.table" %in% class(x)) stop("Data.table not supported")
     if (is.null(colnames(x))) stop("A data frame with colnames is expected")
     if (is.null(type)) stop("type is missing with no default")
