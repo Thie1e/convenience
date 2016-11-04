@@ -11,10 +11,13 @@ draw(x, n = 10L, replace = F, ...)
 
 \item{n}{Single positive integer. The number of rows/elements to be randomly
 drawn.}
+
+\item{replace}{If TRUE draw with replacement. Default FALSE}
 }
 \description{
 Randomly draw n rows/elements from an object. Can be useful as an alternative
 to head(), tail() or ht(). May also be used to quickly draw random samples.
+Works with tibbles, too, but will return a data.frame in that case.
 }
 \examples{
 set.seed(4321)

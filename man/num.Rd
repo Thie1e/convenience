@@ -10,7 +10,7 @@ num(x)
 This function is just a shortcut to as.numeric().
 }
 \examples{
-num()
+str(num("2"))
 }
 \keyword{as.numeric}
 

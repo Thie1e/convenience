@@ -4,6 +4,6 @@
 #' @keywords as.numeric
 #' @export
 #' @examples
-#' num()
+#' str(num("2"))
 
 num <- function(x) as.numeric(x)

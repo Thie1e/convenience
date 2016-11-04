@@ -15,7 +15,7 @@
 #' @keywords SOAR
 #' @export
 #' @examples
-#' storeAll()
+#' ## storeAll()
 
 storeAll <- function(thresh = 50, dir = "SOARcache"){
       oldLC <- Sys.getenv("R_LOCAL_CACHE", unset = ".R_Cache")

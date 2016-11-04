@@ -31,9 +31,6 @@ using an information criterion
 after estimating a VAR and then checks for Granger-Causality in both
 directions. Uses lmtest::grangertest() for the Granger-Causality testing.
 }
-\examples{
-autoCheckGC()
-}
 \keyword{Granger-Causality}
 \keyword{VAR}
 

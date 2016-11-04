@@ -27,9 +27,6 @@ value of every observation. Normalization before the calculations are
 carried out is possible. The function does only return the newly created
 terms, not the input data.
 }
-\examples{
-createInteractions()
-}
 \keyword{data.frame}
 \keyword{interactions}
 

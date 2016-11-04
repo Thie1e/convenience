@@ -18,8 +18,6 @@
 #' to vars::VARselect().
 #' @keywords VAR Granger-Causality
 #' @export
-#' @examples
-#' autoCheckGC()
 
 autoCheckGC <- function(x = NULL, convertToWeekly = F,
                         lagCriterion = "AIC", useMinLags = F, ...){
@@ -28,19 +26,19 @@ autoCheckGC <- function(x = NULL, convertToWeekly = F,
       stopifnot(lagCriterion %in% c("AIC", "HQ", "SC", "FPE"))
       varnames <- colnames(x)
       if (convertToWeekly){
-            x1 <- to.weekly(x[, 1])[, 4]
-            x2<- to.weekly(x[, 2])[, 4]
+            x1 <- xts::to.weekly(x[, 1])[, 4]
+            x2<- xts::to.weekly(x[, 2])[, 4]
             x <- merge(x1, x2)
             colnames(x) <- varnames
             rm(x1, x2)
       }
-      lags <- VARselect(x)$selection
+      lags <- vars::VARselect(x)$selection
       lagCriterion <- paste(lagCriterion, "(n)", sep = "")
       if (useMinLags){
             lags <- min(lags)
       } else lags <- lags[lagCriterion]
-      gc1 <- grangertest(x = x[, 1], y = x[, 2], order = lags)
-      gc2 <- grangertest(x = x[, 2], y = x[, 1], order = lags)
+      gc1 <- lmtest::grangertest(x = x[, 1], y = x[, 2], order = lags)
+      gc2 <- lmtest::grangertest(x = x[, 2], y = x[, 1], order = lags)
       message(paste("Hypothesis 1:", varnames[1], "does not help predict",
                     varnames[2], "can be rejected with a p-value of",
                     round(gc1[2, "Pr(>F)"], 3), "using", lags, "lags."))

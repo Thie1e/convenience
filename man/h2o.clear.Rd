@@ -16,7 +16,7 @@ objects, "noModel" to remove all non-model objects}
 This function removes all or a specified type of objects from an H2O connection.
 }
 \examples{
-h2o.clear(h2oServer, "models")
+## h2o.clear(h2oServer, "models")
 }
 \keyword{H2O}
 \keyword{h2o.rm}

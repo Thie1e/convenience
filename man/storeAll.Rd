@@ -24,7 +24,7 @@ Automatically runs garbage collection after storing the objects.
 Returns the result of the garbage collection.
 }
 \examples{
-storeAll()
+## storeAll()
 }
 \keyword{SOAR}
 

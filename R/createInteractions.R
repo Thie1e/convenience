@@ -16,8 +16,6 @@
 #' a lot of levels. TRUE by default.
 #' @keywords interactions data.frame
 #' @export
-#' @examples
-#' createInteractions()
 
 createInteractions <- function(x, type = NULL, normalize = T, excludeFactors = T){
 
@@ -32,7 +30,7 @@ createInteractions <- function(x, type = NULL, normalize = T, excludeFactors = T
 
     if (normalize){
         excludedFac <- which(unlist(lapply(x, class)) == "factor")
-        SDs <- unlist(lapply(x, sd))
+        SDs <- unlist(lapply(x, stats::sd))
         # For columns without variance
         if (any(SDs == 0)){
             warning("Columns with zero variance found")
@@ -62,7 +60,7 @@ createInteractions <- function(x, type = NULL, normalize = T, excludeFactors = T
         nLevels <- sum(unlist(nLevels))
         # -1 because of intercept. Without -1 and if factors are present
         # one factor variable will be included with all levels
-        return(model.matrix(~ .^2, x)[, -(1:(nonFacCols + nLevels - FacCols + 1))])
+        return(stats::model.matrix(~ .^2, x)[, -(1:(nonFacCols + nLevels - FacCols + 1))])
     }
 
     if (type == "-"){

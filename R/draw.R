@@ -6,6 +6,7 @@
 #' @param x An object
 #' @param n Single positive integer. The number of rows/elements to be randomly
 #' drawn.
+#' @param replace If TRUE draw with replacement. Default FALSE
 #' @keywords sample
 #' @export
 #' @examples

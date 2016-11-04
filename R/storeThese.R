@@ -20,7 +20,7 @@
 storeThese <- function(objects = NULL){
       oldLC <- Sys.getenv("R_LOCAL_CACHE", unset = ".R_Cache")
       Sys.setenv(R_LOCAL_CACHE ="SOARcache")
-      Store(list = objects)
+      SOAR::Store(list = objects)
       Sys.setenv(R_LOCAL_CACHE = oldLC)
       rm(list = objects, pos = .GlobalEnv)
       gc()
