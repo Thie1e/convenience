@@ -2,8 +2,9 @@
 #'
 #' This function shows the first and last n rows/elements of an object by
 #' combining utils::head and utils::tail. It is supposed to be used only while
-#' working interactively. Returns tail(x, n).
-#' @param x An object
+#' working interactively. Returns NULL invisibly. Also works with tibbles, but returns
+#' a data.frame in that case.
+#' @param x An object (usually a data.frame, matrix or vector)
 #' @param n A single positive integer. The number of rows/elements to print of the
 #' head and tail of the object.
 #' @keywords head tail
@@ -25,10 +26,23 @@
 #' 149          6.2         3.4          5.4         2.3 virginica
 #' 150          5.9         3.0          5.1         1.8 virginica
 
-ht <- function (x, n = 5L, ...){
-      stopifnot (n > 0)
-      message("Head:")
-      print(head(x, n))
-      message("Tail:")
-      print(tail(x, n))
+ht <- function(x) UseMethod("ht")
+
+ht.default <- function (x, n = 5L, ...){
+    stopifnot (n > 0)
+    if (is.atomic(x)) {
+        c(head(x, n), tail(x, n))
+    } else {
+        rbind(head(x, n), tail(x, n))
+    }
+}
+
+ht. <- function (x, n = 5L, ...){
+    stopifnot (n > 0)
+    rbind(head(x, n), tail(x, n))
+}
+
+ht.tbl_df <- function (x, n = 5L, ...){
+    stopifnot (n > 0)
+    data.frame(rbind(head(x, n), tail(x, n)))
 }
