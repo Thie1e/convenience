@@ -23,9 +23,6 @@
 
 autoCheckGC <- function(x = NULL, convertToWeekly = F,
                         lagCriterion = "AIC", useMinLags = F, ...){
-      require(vars)
-      require(xts)
-      require(lmtest)
       stopifnot("xts" %in% class(x))
       if (sum(is.na(x)) > 0) stop("NAs in data not allowed")
       stopifnot(lagCriterion %in% c("AIC", "HQ", "SC", "FPE"))

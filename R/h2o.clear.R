@@ -13,7 +13,6 @@ h2o.clear <- function(servername, clear = "all") {
     stopifnot(clear %in% c("all", "models", "noModel"))
     stopifnot(class(servername) == "H2OConnection")
 
-    require(stringr)
     ls_h2o <- h2o.ls(servername)
     ls_h2o <- as.character(ls_h2o$key)
 

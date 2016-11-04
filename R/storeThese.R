@@ -18,7 +18,6 @@
 #' storeThese()
 
 storeThese <- function(objects = NULL){
-      require(SOAR)
       oldLC <- Sys.getenv("R_LOCAL_CACHE", unset = ".R_Cache")
       Sys.setenv(R_LOCAL_CACHE ="SOARcache")
       Store(list = objects)

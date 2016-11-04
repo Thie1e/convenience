@@ -18,7 +18,6 @@
 #' storeAll()
 
 storeAll <- function(thresh = 50, dir = "SOARcache"){
-      require(SOAR)
       oldLC <- Sys.getenv("R_LOCAL_CACHE", unset = ".R_Cache")
       Sys.setenv(R_LOCAL_CACHE = dir)
       sizesDF <- showMb()
