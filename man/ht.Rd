@@ -4,7 +4,7 @@
 \alias{ht}
 \title{Return the First and Last Rows or Elements of an Object}
 \usage{
-ht(x, n, ...)
+ht(x, n)
 }
 \arguments{
 \item{x}{An object (usually a data.frame, matrix or vector)}

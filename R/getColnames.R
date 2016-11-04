@@ -2,7 +2,7 @@
 #'
 #' This function returns the column names of all variables in the global
 #' environment
-#' @param objets (optional) A character vector of all objects for which
+#' @param objects (optional) A character vector of all objects for which
 #' column names should be returned. If NULL (the default) the function
 #' fetches all variable names from the global environment.
 #' @keywords colnames

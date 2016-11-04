@@ -20,7 +20,7 @@
 #' ###  112          6.4         2.7          5.3         1.9  virginica
 #' ###  109          6.7         2.5          5.8         1.8  virginica
 
-draw <- function(x, n = 10L, replace = F, ...){
+draw <- function(x, n = 10L, replace = F){
     stopifnot(n >= 0)
     dimension <- dim(x)
     if (is.null(dimension)){

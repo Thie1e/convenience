@@ -7,7 +7,7 @@
 getColnames(objects = NULL)
 }
 \arguments{
-\item{objets}{(optional) A character vector of all objects for which
+\item{objects}{(optional) A character vector of all objects for which
 column names should be returned. If NULL (the default) the function
 fetches all variable names from the global environment.}
 }

@@ -4,7 +4,7 @@
 \alias{draw}
 \title{Randomly draw rows or elements from an object}
 \usage{
-draw(x, n = 10L, replace = F, ...)
+draw(x, n = 10L, replace = F)
 }
 \arguments{
 \item{x}{An object}

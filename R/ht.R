@@ -12,10 +12,10 @@
 #' ht(iris)
 
 #' @export
-ht <- function(x, n, ...) UseMethod("ht", x)
+ht <- function(x, n) UseMethod("ht", x)
 
 #' @export
-ht.default <- function (x, n = 5, ...){
+ht.default <- function (x, n = 5){
     stopifnot (n > 0)
     if (is.atomic(x)) {
         c(head(x, n), tail(x, n))
@@ -25,17 +25,13 @@ ht.default <- function (x, n = 5, ...){
 }
 
 #' @export
-ht.tbl_df <- function (x, n = 5, ...){
+ht.tbl_df <- function (x, n = 5){
     stopifnot (n > 0)
     data.frame(rbind(head(x, n), tail(x, n)))
 }
 
 #' @export
-ht.data.frame <- function (x, n = 5, ...){
+ht.matrix <- function (x, n = 5){
     stopifnot (n > 0)
-    if (is.atomic(x)) {
-        c(head(x, n), tail(x, n))
-    } else {
-        rbind(head(x, n), tail(x, n))
-    }
+    matrix(rbind(head(x, n), tail(x, n)), ncol = 2)
 }

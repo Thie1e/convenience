@@ -6,6 +6,9 @@
 \usage{
 num(x)
 }
+\arguments{
+\item{x}{An object to convert to numeric}
+}
 \description{
 This function is just a shortcut to as.numeric().
 }
