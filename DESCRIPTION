@@ -17,4 +17,6 @@ License: MIT + file LICENSE
 LazyData: true
 RoxygenNote: 5.0.1
 Suggests:
-    h2o
+    h2o,
+    testthat,
+    tibble
