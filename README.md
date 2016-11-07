@@ -1,4 +1,5 @@
-[![Travis-CI Build Status](https://travis-ci.org/Thie1e/convenience.svg?branch=master)](https://travis-ci.org/Thie1e/convenience) [![Coverage Status](https://img.shields.io/codecov/c/github/thie1e/convenience/master.svg)](https://codecov.io/github/thie1e/convenience?branch=master)
+[![Travis-CI Build Status](https://travis-ci.org/Thie1e/convenience.svg?branch=master)](https://travis-ci.org/Thie1e/convenience) [![Coverage Status](https://img.shields.io/codecov/c/github/thie1e/convenience/master.svg)](https://codecov.io/github/thie1e/convenience?branch=master) [![HitCount](https://hitt.herokuapp.com/thie1e/convenience.svg)](https://github.com/thie1e/convenience)
+
 
 # convenience
 A small package of diverse functions, mainly for more convenient working in R
